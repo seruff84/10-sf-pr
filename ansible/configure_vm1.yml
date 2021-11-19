@@ -12,7 +12,6 @@
       - ansible
       -
   - name: Download agent.jar
-    become: no
     get_url:
       url: http://91.203.226.40/jnlpJars/agent.jar
       dest: /home/ansible/
