@@ -1,0 +1,21 @@
+---
+- hosts: vm1-db-u
+  become: yes
+  tasks:
+  - name: ensure prequest is installed
+    apt:
+      name: "{{item}}"
+      update_cache: yes
+    loop:
+      - openjdk-11-jdk
+      - ansible
+
+  - name: copy the nginx key file
+    copy:
+      src: ./files/__avselectro.ru.key
+      dest: /etc/ssl/private/__avselectro.ru.key
+      mode: '0600'
+    notify:
+      - restart nginx
+
+  -

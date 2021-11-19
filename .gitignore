@@ -1,0 +1,9 @@
+/venv
+/.terraform
+/.idea
+/Jenkins
+/ansible/inventory
+terraform.tfstate*
+.terraform.*
+hash
+terraform.lock.hcl
