@@ -1,0 +1,9 @@
+[app]
+vm2-app-u ansible_host=51.250.10.193
+vm3-app-c ansible_host=51.250.11.209
+
+[database]
+vm1-db-u ansible_host=51.250.10.241
+
+[web]
+vm1-db-u ansible_host=51.250.10.241

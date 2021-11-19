@@ -2,7 +2,7 @@
 /.terraform
 /.idea
 /Jenkins
-/ansible/inventory
+#/ansible/inventory
 terraform.tfstate*
 .terraform.*
 hash
