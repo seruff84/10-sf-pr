@@ -12,6 +12,7 @@
       - ansible
       -
   - name: Download agent.jar
+    become: no
     get_url:
       url: http://91.203.226.40/jnlpJars/agent.jar
       dest: ~/
@@ -19,11 +20,20 @@
   - name: Create a directory if it does not exist
 
     ansible.builtin.file:
-      path: /export/home/jenkins/
+      become: no
+      path: ~/jenkins/
       state: directory
       recurse: yes
+      owner: ansible
       mode: '0740'
 
-  - name: Run command
-    ansible.builtin.command:
-      cmd: java -jar agent.jar -jnlpUrl http://91.203.226.40/computer/vm1/jenkins-agent.jnlp -secret 7fd5ef5a0c554adf445f671444860589bc69ea9ec62779a401d5c3ac0ed15f8f -workDir "/export/home/jenkins"
+  - name: copy the jenkins-slave.service file
+    copy:
+      src: ./ansible/files/jenkins-slave.service
+      dest: /etc/systemd/system
+
+  - name: Restart service enkins-slave
+    ansible.builtin.systemd:
+      state: restarted
+      daemon_reload: yes
+      name: jenkins-slave

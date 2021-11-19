@@ -1,0 +1,11 @@
+[Unit]
+Description=Jenkins Runner
+
+[Service]
+ExecStart=/usr/bin/java -jar /home/ansible/agent.jar -jnlpUrl http://91.203.226.40/computer/vm1/jenkins-agent.jnlp  -secret 7fd5ef5a0c554adf445f671444860589bc69ea9ec62779a401d5c3ac0ed15f8f  -workDir "/home/ansible/jenkins"
+Restart=always
+RestartSec=30
+User=ansible
+
+[Install]
+WantedBy=multi-user.target
