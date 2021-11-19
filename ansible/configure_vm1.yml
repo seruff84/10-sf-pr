@@ -28,7 +28,7 @@
 
   - name: copy the jenkins-slave.service file
     copy:
-      src: ./ansible/files/jenkins-slave.service
+      src: jenkins-slave.service
       dest: /etc/systemd/system
 
   - name: Restart service enkins-slave
