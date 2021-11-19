@@ -12,10 +12,7 @@
 
   - name: copy the nginx key file
     copy:
-      src: ./files/__avselectro.ru.key
-      dest: /etc/ssl/private/__avselectro.ru.key
+      src:
+      dest:
       mode: '0600'
     notify:
-      - restart nginx
-
-  -
