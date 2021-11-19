@@ -17,10 +17,10 @@
       url: http://91.203.226.40/jnlpJars/agent.jar
       dest: ~/
       mode: '0640'
+
   - name: Create a directory if it does not exist
-    become: no
     ansible.builtin.file:
-      path: ~/jenkins/
+      path: /home/ansible/jenkins/
       state: directory
       recurse: yes
       owner: ansible
