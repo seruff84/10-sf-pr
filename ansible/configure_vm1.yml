@@ -1,18 +1,12 @@
 ---
-- hosts: vm1-db-u
+- hosts : vm1-db-u
   become: yes
   tasks:
   - name: ensure prequest is installed
     apt:
-      name: "{{item}}"
-      update_cache: yes
+      name          : "{{item}}"
+      update_cache  : yes
+      state         : latest
     loop:
       - openjdk-11-jdk
       - ansible
-
-  - name: copy the nginx key file
-    copy:
-      src:
-      dest:
-      mode: '0600'
-    notify:
