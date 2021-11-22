@@ -2,6 +2,7 @@
 /.terraform
 /.idea
 /Jenkins
+/test
 #/ansible/inventory
 terraform.tfstate*
 .terraform.*
