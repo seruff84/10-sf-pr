@@ -16,5 +16,6 @@ variable "vms" {
         yc_imageid  = string
         hostname    = string
         role        = string
+        os_family   = string
     }))
 }

@@ -1,6 +1,7 @@
 resource "yandex_compute_instance" "vm" {
   for_each        = var.vms
   name            = each.value.hostname
+  preemptible     = true
   resources {
     cores         = var.yc_cores
     memory        = var.yc_memory
@@ -11,7 +12,7 @@ resource "yandex_compute_instance" "vm" {
   }
   boot_disk {
     initialize_params {
-      image_id = each.value.yc_imageid
+      image_id = data.yandex_compute_image.my_image[each.key].id
       size     = var.yc_disk_size
     }
   }
