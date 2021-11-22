@@ -13,7 +13,6 @@ variable "vm_count" {
   }
 variable "vms" {
     type = map(object({
-        yc_imageid  = string
         hostname    = string
         role        = string
         os_family   = string
