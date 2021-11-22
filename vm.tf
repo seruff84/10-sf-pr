@@ -1,7 +1,11 @@
 resource "yandex_compute_instance" "vm" {
   for_each        = var.vms
   name            = each.value.hostname
-  preemptible     = true
+
+  scheduling_policy {
+    preemptible = true
+  }
+
   resources {
     cores         = var.yc_cores
     memory        = var.yc_memory

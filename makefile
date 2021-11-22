@@ -1,5 +1,7 @@
 apply:
 	terraform apply -auto-approve -var-file=hash
+plan:
+	terraform plan -var-file=hash
 destroy:
 	terraform destroy -auto-approve -var-file=hash
 encrypt:
