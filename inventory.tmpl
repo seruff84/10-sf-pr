@@ -18,3 +18,10 @@ ${host.name} ansible_host=${ host.network_interface.0.nat_ip_address }
 ${host.name} ansible_host=${ host.network_interface.0.nat_ip_address }
 %{ endif ~}
 %{~ endfor ~}
+
+[all:vars]
+ansible_ssh_extra_args='-o StrictHostKeyChecking=accept-new'
+
+[database:vars]
+pgversion=12
+datadir=/db_data
