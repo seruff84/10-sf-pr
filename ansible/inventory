@@ -1,16 +1,17 @@
 [app]
-vm2-app-u ansible_host=51.250.12.247
-vm3-app-c ansible_host=51.250.8.136
+vm2-app-u ansible_host=51.250.0.216
+vm3-app-c ansible_host=51.250.11.231
 
 [database]
-vm1-db-u ansible_host=51.250.10.211
+vm1-db-u ansible_host=51.250.8.253
 
 [web]
-vm1-db-u ansible_host=51.250.10.211
+vm1-db-u ansible_host=51.250.8.253
 
 [all:vars]
 ansible_ssh_extra_args='-o StrictHostKeyChecking=accept-new'
 
 [database:vars]
 pgversion=12
+
 datadir=/db_data
