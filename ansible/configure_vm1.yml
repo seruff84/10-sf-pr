@@ -37,10 +37,3 @@
       daemon_reload: yes
       name: jenkins-slave
 
-  - name: Copy Ansible folder
-    ansible.builtin.copy:
-      src: ./ansible/
-      dest: /home/ansible/jenkins/
-      owner: ansible
-      mode: '0740'
-      directory_mode: yes
