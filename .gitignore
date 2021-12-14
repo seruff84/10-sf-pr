@@ -3,6 +3,8 @@
 /.idea
 /Jenkins
 /test
+/webapi1c
+/avselectro_web
 #/ansible/inventory
 terraform.tfstate*
 .terraform.*

@@ -9,7 +9,7 @@ resource "yandex_compute_instance" "vm" {
   resources {
     cores         = var.yc_cores
     memory        = var.yc_memory
-    core_fraction = 20
+    core_fraction = 5
   }
   labels = {
     ansible-group = each.value.role
