@@ -1,0 +1,45 @@
+---
+# tasks file for prometheus
+- name: Ensures  dirs exists
+  file:
+    path: '/opt/prometheus'
+    state: directory
+
+- name: Ensures grafana dir hava righrts exists
+  file:
+    path: '{{project_root}}/grafana'
+    state: directory
+    owner: 472
+    group: 472
+    mode: 0755
+
+#- name: Ensures alertmanager dir hava righrts exists
+#  file:
+#    path: '{{project_root}}/alertmanager'
+#    state: directory
+#    owner: nobody
+#    group: nogroup
+#    mode: 0555
+
+- name: Go to the folder and execute command
+  command: chdir=/opt/prometheus ls
+
+- name: copy prometheus files
+  copy:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    owner: '{{ item.owner }}'
+    group: '{{ item.group }}'
+    mode: 0555
+  with_items:
+  - { src: alert.rules, dest: "{{project_root}}/prometheus/",owner: seruff ,group: seruff}
+  - { src: config.yml, dest: "{{project_root}}/alertmanager/", owner: nobody ,group: nogroup}
+  - { src: blackbox.yml, dest: "{{project_root}}/blackbox/", owner: seruff ,group: seruff}
+
+- name: Template a file prometheus.yml
+  template:
+    src: prometheus.yml.j2
+    dest: '{{project_root}}/prometheus/prometheus.yml'
+    owner: seruff
+    group: seruff
+    mode: '0644'

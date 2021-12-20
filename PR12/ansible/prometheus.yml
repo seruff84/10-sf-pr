@@ -1,0 +1,12 @@
+- name: prometheus
+  hosts: prometheus
+  become: yes
+  roles:
+  - docker
+  - prometheus
+- name: web
+  hosts: web
+  become: yes
+  roles:
+  - docker
+  - nginx

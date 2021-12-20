@@ -1,0 +1,5 @@
+[prometheus]
+vm1-prometheus ansible_host=62.84.113.103
+
+[web]
+vm2-web ansible_host=62.84.114.234

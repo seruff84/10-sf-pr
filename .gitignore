@@ -11,3 +11,4 @@ terraform.tfstate*
 #hash
 terraform.lock.hcl
 vault_pass
+secret.auto.tfvars

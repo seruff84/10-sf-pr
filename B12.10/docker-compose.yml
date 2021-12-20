@@ -5,7 +5,7 @@ services:
         volumes:
             - ./prometheus:/etc/prometheus/
         command:
-            - --config.file=/etc/prometheus/prometheus.yml
+            - --config.file=/etc/prometheus/prometheus.yml.j2
         ports:
             - 9090:9090
         restart: always
